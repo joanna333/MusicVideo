@@ -35,12 +35,12 @@
 
 /* Begin PBXFileReference section */
 		9E8B0F151CF2120800CE0B70 /* MusicVideo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicVideo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		9E8B0F181CF2120900CE0B70 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		9E8B0F181CF2120900CE0B70 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = MusicVideo/AppDelegate.swift; sourceTree = "<group>"; };
 		9E8B0F1A1CF2120900CE0B70 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9E8B0F1D1CF2120900CE0B70 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		9E8B0F1F1CF2120900CE0B70 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9E8B0F1F1CF2120900CE0B70 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = MusicVideo/Assets.xcassets; sourceTree = "<group>"; };
 		9E8B0F221CF2120900CE0B70 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		9E8B0F241CF2120900CE0B70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9E8B0F241CF2120900CE0B70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = MusicVideo/Info.plist; sourceTree = "<group>"; };
 		9E8B0F291CF2120900CE0B70 /* MusicVideoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MusicVideoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E8B0F2D1CF2120900CE0B70 /* MusicVideoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicVideoTests.swift; sourceTree = "<group>"; };
 		9E8B0F2F1CF2120900CE0B70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -97,12 +97,10 @@
 		9E8B0F171CF2120900CE0B70 /* MusicVideo */ = {
 			isa = PBXGroup;
 			children = (
-				9E8B0F181CF2120900CE0B70 /* AppDelegate.swift */,
-				9E8B0F1A1CF2120900CE0B70 /* ViewController.swift */,
-				9E8B0F1C1CF2120900CE0B70 /* Main.storyboard */,
-				9E8B0F1F1CF2120900CE0B70 /* Assets.xcassets */,
-				9E8B0F211CF2120900CE0B70 /* LaunchScreen.storyboard */,
-				9E8B0F241CF2120900CE0B70 /* Info.plist */,
+				9E8B0F491CF214E900CE0B70 /* Supporting Files */,
+				9E8B0F461CF214AC00CE0B70 /* Model */,
+				9E8B0F481CF214CC00CE0B70 /* View */,
+				9E8B0F471CF214BA00CE0B70 /* Controller */,
 			);
 			path = MusicVideo;
 			sourceTree = "<group>";
@@ -123,6 +121,41 @@
 				9E8B0F3A1CF2120900CE0B70 /* Info.plist */,
 			);
 			path = MusicVideoUITests;
+			sourceTree = "<group>";
+		};
+		9E8B0F461CF214AC00CE0B70 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		9E8B0F471CF214BA00CE0B70 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9E8B0F1A1CF2120900CE0B70 /* ViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		9E8B0F481CF214CC00CE0B70 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9E8B0F211CF2120900CE0B70 /* LaunchScreen.storyboard */,
+				9E8B0F1C1CF2120900CE0B70 /* Main.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		9E8B0F491CF214E900CE0B70 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9E8B0F241CF2120900CE0B70 /* Info.plist */,
+				9E8B0F1F1CF2120900CE0B70 /* Assets.xcassets */,
+				9E8B0F181CF2120900CE0B70 /* AppDelegate.swift */,
+			);
+			name = "Supporting Files";
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
