@@ -25,7 +25,7 @@
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tnx-QX-mbP">
                                             <rect key="frame" x="8" y="0.0" width="147" height="123"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="147" id="929-FF-Ywm"/>
+                                                <constraint firstAttribute="width" constant="147" id="HWX-12-xFF"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="musicTitle" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RAN-V8-Ri7">
@@ -35,27 +35,27 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="rank" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r1p-h7-UJ7">
-                                            <rect key="frame" x="163" y="8" width="42" height="29"/>
+                                            <rect key="frame" x="163" y="0.0" width="63" height="43"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="42" id="gnE-lB-Aub"/>
-                                                <constraint firstAttribute="height" constant="29" id="uTN-59-VAv"/>
+                                                <constraint firstAttribute="width" constant="63" id="Flb-rC-Ekc"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
-                                        <constraint firstItem="tnx-QX-mbP" firstAttribute="leading" secondItem="N1O-68-TTo" secondAttribute="leadingMargin" id="1nq-pG-fZk"/>
-                                        <constraint firstItem="r1p-h7-UJ7" firstAttribute="leading" secondItem="tnx-QX-mbP" secondAttribute="trailing" constant="8" symbolic="YES" id="CJV-Qv-oQh"/>
-                                        <constraint firstItem="tnx-QX-mbP" firstAttribute="bottom" secondItem="RAN-V8-Ri7" secondAttribute="bottom" id="Cdq-nV-2q8"/>
-                                        <constraint firstItem="RAN-V8-Ri7" firstAttribute="top" secondItem="r1p-h7-UJ7" secondAttribute="bottom" constant="3" id="LjC-9M-pzh"/>
-                                        <constraint firstItem="tnx-QX-mbP" firstAttribute="bottom" secondItem="N1O-68-TTo" secondAttribute="bottomMargin" id="bcp-lW-k69"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="RAN-V8-Ri7" secondAttribute="trailing" constant="39" id="c9f-k6-Z4J"/>
-                                        <constraint firstItem="tnx-QX-mbP" firstAttribute="top" secondItem="N1O-68-TTo" secondAttribute="top" id="hh5-Ig-4Vb"/>
-                                        <constraint firstItem="r1p-h7-UJ7" firstAttribute="leading" secondItem="RAN-V8-Ri7" secondAttribute="leading" id="l8N-7c-dfi"/>
-                                        <constraint firstItem="r1p-h7-UJ7" firstAttribute="top" secondItem="N1O-68-TTo" secondAttribute="topMargin" id="sKX-cs-91d"/>
+                                        <constraint firstItem="tnx-QX-mbP" firstAttribute="bottom" secondItem="RAN-V8-Ri7" secondAttribute="bottom" id="68U-jD-UW8"/>
+                                        <constraint firstItem="RAN-V8-Ri7" firstAttribute="top" secondItem="N1O-68-TTo" secondAttribute="topMargin" constant="32" id="Aap-sa-odb"/>
+                                        <constraint firstItem="tnx-QX-mbP" firstAttribute="bottom" secondItem="N1O-68-TTo" secondAttribute="bottomMargin" id="O5C-r8-Dhr"/>
+                                        <constraint firstItem="tnx-QX-mbP" firstAttribute="leading" secondItem="N1O-68-TTo" secondAttribute="leadingMargin" id="OMI-ev-8nY"/>
+                                        <constraint firstItem="tnx-QX-mbP" firstAttribute="top" secondItem="N1O-68-TTo" secondAttribute="top" id="a7c-dm-JqM"/>
+                                        <constraint firstItem="r1p-h7-UJ7" firstAttribute="leading" secondItem="tnx-QX-mbP" secondAttribute="trailing" constant="8" symbolic="YES" id="cXN-YG-SZI"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="r1p-h7-UJ7" secondAttribute="bottom" constant="80" id="mfc-Gn-px2"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="RAN-V8-Ri7" secondAttribute="trailing" constant="39" id="nhC-93-8FP"/>
+                                        <constraint firstItem="r1p-h7-UJ7" firstAttribute="leading" secondItem="RAN-V8-Ri7" secondAttribute="leading" id="qOC-5y-0T6"/>
+                                        <constraint firstItem="tnx-QX-mbP" firstAttribute="top" secondItem="r1p-h7-UJ7" secondAttribute="top" id="v2e-s1-vCU"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
