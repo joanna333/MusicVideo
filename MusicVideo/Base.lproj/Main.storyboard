@@ -119,6 +119,9 @@
                                                 <constraint firstItem="Iac-7I-TVS" firstAttribute="top" secondItem="41Z-DJ-mRG" secondAttribute="topMargin" constant="23" id="wjr-fW-Ypb"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="CA6-n0-1Ur" kind="show" id="F79-ir-ZeN"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="NRN-F0-aPy">
                                         <rect key="frame" x="0.0" y="148" width="600" height="84"/>
@@ -270,6 +273,43 @@
             </objects>
             <point key="canvasLocation" x="2036" y="1052"/>
         </scene>
+        <!--AboutVC-->
+        <scene sceneID="Ifa-P5-f7g">
+            <objects>
+                <viewController id="CA6-n0-1Ur" customClass="AboutVC" customModule="MusicVideo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="I97-va-bDH"/>
+                        <viewControllerLayoutGuide type="bottom" id="YOW-OG-pVa"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dNl-Hc-14f">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Created by J.K.O" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HO9-Hp-pZd">
+                                <rect key="frame" x="125" y="240" width="351" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="351" id="jwe-zC-ad0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="HO9-Hp-pZd" firstAttribute="centerY" secondItem="dNl-Hc-14f" secondAttribute="centerY" id="Mw2-Fw-pkE"/>
+                            <constraint firstItem="HO9-Hp-pZd" firstAttribute="centerX" secondItem="dNl-Hc-14f" secondAttribute="centerX" id="VF0-8Q-WfL"/>
+                            <constraint firstItem="HO9-Hp-pZd" firstAttribute="top" secondItem="I97-va-bDH" secondAttribute="bottom" constant="176" id="cbc-LT-6MG"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="createdLbl" destination="HO9-Hp-pZd" id="wiw-DX-uHO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kn2-tT-LxT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2667" y="1052"/>
+        </scene>
         <!--Music Video DetailVC-->
         <scene sceneID="2sH-ON-JOm">
             <objects>
@@ -386,6 +426,9 @@
                     <toolbarItems>
                         <barButtonItem systemItem="play" id="YEo-wI-Twy">
                             <color key="tintColor" red="1" green="0.34509803919999998" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="playVideo:" destination="jdw-71-oRF" id="jnl-uf-R7E"/>
+                            </connections>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="XJZ-bo-bbi"/>
                         <barButtonItem systemItem="action" id="Joe-kt-hrK">
