@@ -22,6 +22,7 @@
 		9E8B0F2E1CF2120900CE0B70 /* MusicVideoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8B0F2D1CF2120900CE0B70 /* MusicVideoTests.swift */; };
 		9E8B0F391CF2120900CE0B70 /* MusicVideoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8B0F381CF2120900CE0B70 /* MusicVideoUITests.swift */; };
 		9E8B0F4B1CF21A6B00CE0B70 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8B0F4A1CF21A6B00CE0B70 /* APIManager.swift */; };
+		9E9BD5321CFB0FA00085E623 /* MyExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9BD5311CFB0FA00085E623 /* MyExtensions.swift */; };
 		9EBE82CD1CF8CFFE0061B8C0 /* MusicVideoDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EBE82CC1CF8CFFE0061B8C0 /* MusicVideoDetailVC.swift */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +67,7 @@
 		9E8B0F381CF2120900CE0B70 /* MusicVideoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicVideoUITests.swift; sourceTree = "<group>"; };
 		9E8B0F3A1CF2120900CE0B70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9E8B0F4A1CF21A6B00CE0B70 /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		9E9BD5311CFB0FA00085E623 /* MyExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyExtensions.swift; sourceTree = "<group>"; };
 		9EBE82CC1CF8CFFE0061B8C0 /* MusicVideoDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicVideoDetailVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -181,6 +183,7 @@
 				9E6349151CF8A4920070BEBC /* MusicVideoTableViewCell.swift */,
 				9E6232F11CF9A9B8008922FA /* SettingsTVC.swift */,
 				9E6232F31CFA01D7008922FA /* AboutVC.swift */,
+				9E9BD5311CFB0FA00085E623 /* MyExtensions.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -342,6 +345,7 @@
 				9E8B0F4B1CF21A6B00CE0B70 /* APIManager.swift in Sources */,
 				9EBE82CD1CF8CFFE0061B8C0 /* MusicVideoDetailVC.swift in Sources */,
 				9E8B0F1B1CF2120900CE0B70 /* ViewController.swift in Sources */,
+				9E9BD5321CFB0FA00085E623 /* MyExtensions.swift in Sources */,
 				9E4A60D81CF2E38E00F74845 /* MusicVideo.swift in Sources */,
 				9E6349161CF8A4920070BEBC /* MusicVideoTableViewCell.swift in Sources */,
 				9E8B0F191CF2120900CE0B70 /* AppDelegate.swift in Sources */,
