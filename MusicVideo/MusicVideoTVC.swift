@@ -11,9 +11,9 @@ import UIKit
 var resolution = "300x300"
 
 class MusicVideoTVC: UITableViewController {
-    var videos = [Videos]()
+    var videos = [Video]()
     
-    var filterSearch = [Videos]()
+    var filterSearch = [Video]()
     
     let resultSearchController = UISearchController(searchResultsController: nil)
     var limit = 10
@@ -33,7 +33,7 @@ class MusicVideoTVC: UITableViewController {
         print("The preferred font has changed")
     }
     
-    func didLoadData(videos: [Videos]) {
+    func didLoadData(videos: [Video]) {
         
         print(reachabilityStatus)
         self.videos = videos
@@ -222,7 +222,7 @@ class MusicVideoTVC: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == storyboard.segueIdentifier {
             if let indexpath = tableView.indexPathForSelectedRow {
-                let video: Videos
+                let video: Video
                 if resultSearchController.active {
                     video = filterSearch[indexpath.row]
                 } else {
