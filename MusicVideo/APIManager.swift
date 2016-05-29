@@ -26,38 +26,31 @@ class APIManager {
                 print(error!.localizedDescription)
                 
             } else {
-                // print(data)
-                do {
-                    
-                    if let json = try NSJSONSerialization.JSONObjectWithData(data!, options: .AllowFragments) as? JSONDictionary, feed = json["feed"] as? JSONDictionary, entries = feed["entry"] as? JSONArray {
-                        
-                        var videos = [Video]()
-                        for (index,entry) in entries.enumerate() {
-                            let entry = Video(data: entry as! JSONDictionary, resolution: resolution)
-                            entry.vRank = index + 1
-                            videos.append(entry)
-                        }
-                        
-                        let i = videos.count
-                        print("iTunesApiManager - total count --> \(i)")
-                        print("  ")
-                        
-                        let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
-                        dispatch_async(dispatch_get_global_queue(priority, 0)) {
-                            dispatch_async(dispatch_get_main_queue()) {
-                                completion(videos)
-                            }
-                        }
+                let videos = self.parseJson(data)
+                
+                let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
+                dispatch_async(dispatch_get_global_queue(priority, 0)) {
+                    dispatch_async(dispatch_get_main_queue()) {
+                        completion(videos)
                     }
-                } catch {
-                    
-                    print("error in NSJSONSerialization")
-                    
                 }
             }
+            
         }
         task.resume()
-        
+    }
+    
+    
+    func parseJson(data: NSData?) -> [Video] {
+        do {
+            if let json = try NSJSONSerialization.JSONObjectWithData(data!, options: .AllowFragments) as AnyObject? {
+                return JsonDataExtractor.extractVideoDataFromJson(json)
+            }
+        }
+        catch {
+            print("Failed to parse data: \(error)")
+        }
+        return [Video]()
     }
 }
 

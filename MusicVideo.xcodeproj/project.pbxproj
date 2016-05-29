@@ -22,6 +22,7 @@
 		9E8B0F391CF2120900CE0B70 /* MusicVideoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8B0F381CF2120900CE0B70 /* MusicVideoUITests.swift */; };
 		9E8B0F4B1CF21A6B00CE0B70 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8B0F4A1CF21A6B00CE0B70 /* APIManager.swift */; };
 		9E9BD5321CFB0FA00085E623 /* MyExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9BD5311CFB0FA00085E623 /* MyExtensions.swift */; };
+		9E9BD5341CFB3BB60085E623 /* JsonDataExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9BD5331CFB3BB60085E623 /* JsonDataExtractor.swift */; };
 		9EBE82CD1CF8CFFE0061B8C0 /* MusicVideoDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EBE82CC1CF8CFFE0061B8C0 /* MusicVideoDetailVC.swift */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +67,7 @@
 		9E8B0F3A1CF2120900CE0B70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9E8B0F4A1CF21A6B00CE0B70 /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		9E9BD5311CFB0FA00085E623 /* MyExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyExtensions.swift; sourceTree = "<group>"; };
+		9E9BD5331CFB3BB60085E623 /* JsonDataExtractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonDataExtractor.swift; sourceTree = "<group>"; };
 		9EBE82CC1CF8CFFE0061B8C0 /* MusicVideoDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicVideoDetailVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -168,6 +170,7 @@
 			children = (
 				9E4A60D71CF2E38E00F74845 /* MusicVideo.swift */,
 				9E8B0F4A1CF21A6B00CE0B70 /* APIManager.swift */,
+				9E9BD5331CFB3BB60085E623 /* JsonDataExtractor.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -349,6 +352,7 @@
 				9E4A60D61CF2E20F00F74845 /* Constants.swift in Sources */,
 				9E6232F21CF9A9B8008922FA /* SettingsTVC.swift in Sources */,
 				9E6232F41CFA01D7008922FA /* AboutVC.swift in Sources */,
+				9E9BD5341CFB3BB60085E623 /* JsonDataExtractor.swift in Sources */,
 				9E3372601CF6F60E00A7DADC /* MusicVideoTVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
