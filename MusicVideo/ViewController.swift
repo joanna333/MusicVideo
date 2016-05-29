@@ -20,15 +20,14 @@ class ViewController: UIViewController {
 
 
     func didLoadData(result: String) {
-        
+        dispatch_async(dispatch_get_main_queue()) {
         let alert = UIAlertController(title: (result), message: nil, preferredStyle: .Alert)
         
         let okAction = UIAlertAction(title: "Ok", style: .Default) { action -> Void in
-            //do something if you want
         }
-        
         alert.addAction(okAction)
         self.presentViewController(alert, animated: true, completion: nil)
+        }
         
     }
 }
