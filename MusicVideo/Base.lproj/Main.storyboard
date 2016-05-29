@@ -287,7 +287,9 @@
                         <outlet property="APICnt" destination="cYx-bh-Jkh" id="RTx-6P-98p"/>
                         <outlet property="aboutDisplay" destination="Iac-7I-TVS" id="gMy-I0-PNn"/>
                         <outlet property="bestImageDisplay" destination="c7t-c5-IPb" id="eNj-1m-WgI"/>
+                        <outlet property="dragTheSliderLabel" destination="X6G-3b-Mah" id="Mmb-ac-BX8"/>
                         <outlet property="feedBackDisplay" destination="2p7-6z-xB4" id="s9a-P6-1uc"/>
+                        <outlet property="numberLabel" destination="nxd-AQ-X2M" id="PmW-Sq-4vN"/>
                         <outlet property="securityDisplay" destination="dSM-fZ-Pha" id="Vxm-br-Xmt"/>
                         <outlet property="sliderCnt" destination="nmS-gV-Qeb" id="DwR-gP-Lhf"/>
                         <outlet property="touchID" destination="7u3-aD-K8Q" id="4DD-e8-5kD"/>
@@ -429,13 +431,6 @@
                                 <exclude reference="FH0-c4-M05"/>
                                 <exclude reference="PQa-qk-g5r"/>
                                 <exclude reference="iqq-sw-Y1A"/>
-                                <exclude reference="7yp-YP-tB0"/>
-                                <exclude reference="Mef-QE-Ijl"/>
-                                <exclude reference="dU3-aL-5rr"/>
-                                <exclude reference="wHa-Ns-qk0"/>
-                                <exclude reference="Ll1-gc-DZH"/>
-                                <exclude reference="mS4-oA-qT2"/>
-                                <exclude reference="1ph-2K-mVi"/>
                                 <include reference="1Yz-yY-k8O"/>
                                 <exclude reference="DIQ-gu-Zbe"/>
                                 <exclude reference="KpR-d8-pnm"/>
@@ -444,6 +439,13 @@
                                 <include reference="d7b-fE-Ref"/>
                                 <include reference="vcV-dH-Las"/>
                                 <exclude reference="wxB-5G-L8x"/>
+                                <exclude reference="7yp-YP-tB0"/>
+                                <exclude reference="Mef-QE-Ijl"/>
+                                <exclude reference="dU3-aL-5rr"/>
+                                <exclude reference="wHa-Ns-qk0"/>
+                                <exclude reference="Ll1-gc-DZH"/>
+                                <exclude reference="mS4-oA-qT2"/>
+                                <exclude reference="1ph-2K-mVi"/>
                             </mask>
                         </variation>
                     </view>
@@ -457,6 +459,9 @@
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="XJZ-bo-bbi"/>
                         <barButtonItem systemItem="action" id="Joe-kt-hrK">
                             <color key="tintColor" red="1" green="0.34509803919999998" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="socialMedia:" destination="jdw-71-oRF" id="nu5-od-1OG"/>
+                            </connections>
                         </barButtonItem>
                     </toolbarItems>
                     <connections>

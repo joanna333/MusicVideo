@@ -37,6 +37,7 @@ class MusicVideoTVC: UITableViewController {
         
         for (index, item) in videos.enumerate() {
             print("\(index) name = \(item.vName)")
+             print("\(index) name = \(item.vPrice)")
         }
         
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.redColor()]
