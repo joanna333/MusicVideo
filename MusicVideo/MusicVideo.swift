@@ -66,7 +66,7 @@ class Videos {
         return _vReleaseDte
     }
     
-    init(data: JSONDictionary) {
+    init(data: JSONDictionary, resolution: String) {
         
         //Video name
         if let name = data["im:name"] as? JSONDictionary, vName = name["label"] as? String {
@@ -92,7 +92,7 @@ class Videos {
         
         // The Video Image
         if let img = data["im:image"] as? JSONArray, image = img[2] as? JSONDictionary, immage = image["label"] as? String {
-            _vImageUrl = immage.stringByReplacingOccurrencesOfString("100x100", withString: "600x600")
+            _vImageUrl = immage.stringByReplacingOccurrencesOfString("100x100", withString: resolution)
         } else {
             _vImageUrl = ""
         }

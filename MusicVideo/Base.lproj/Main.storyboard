@@ -175,11 +175,23 @@
                                                         <action selector="touchIdSecurity:" destination="e8g-TU-lIN" eventType="valueChanged" id="UYq-g8-4l7"/>
                                                     </connections>
                                                 </switch>
+                                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Security not available on this device" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3df-Dz-oLu">
+                                                    <rect key="frame" x="163" y="54" width="274" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="274" id="dKQ-8c-WSZ"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="3df-Dz-oLu" firstAttribute="centerX" secondItem="Ghk-aW-YYH" secondAttribute="centerX" id="54W-dt-H3W"/>
                                                 <constraint firstItem="dSM-fZ-Pha" firstAttribute="centerY" secondItem="Ghk-aW-YYH" secondAttribute="centerY" id="8uy-jY-5vE"/>
                                                 <constraint firstItem="dSM-fZ-Pha" firstAttribute="leading" secondItem="Ghk-aW-YYH" secondAttribute="leadingMargin" id="EpR-Iv-vXb"/>
+                                                <constraint firstItem="3df-Dz-oLu" firstAttribute="top" secondItem="Ghk-aW-YYH" secondAttribute="topMargin" constant="46" id="F9B-gh-ViR"/>
                                                 <constraint firstItem="dSM-fZ-Pha" firstAttribute="top" secondItem="Ghk-aW-YYH" secondAttribute="topMargin" constant="23" id="S3a-GB-4R0"/>
+                                                <constraint firstItem="3df-Dz-oLu" firstAttribute="bottom" secondItem="Ghk-aW-YYH" secondAttribute="bottomMargin" id="X0h-bn-ayz"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="7u3-aD-K8Q" secondAttribute="trailing" constant="8" id="oDe-CS-lwd"/>
                                                 <constraint firstItem="dSM-fZ-Pha" firstAttribute="centerY" secondItem="7u3-aD-K8Q" secondAttribute="centerY" id="owv-OZ-Sx5"/>
                                             </constraints>
@@ -194,6 +206,9 @@
                                             <subviews>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="cfF-Oy-0vV">
                                                     <rect key="frame" x="535" y="31" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="bestImageQualityOn:" destination="e8g-TU-lIN" eventType="valueChanged" id="YRK-9E-cbX"/>
+                                                    </connections>
                                                 </switch>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Best Image Quality" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c7t-c5-IPb">
                                                     <rect key="frame" x="8" y="26" width="255" height="41"/>
@@ -287,10 +302,12 @@
                         <outlet property="APICnt" destination="cYx-bh-Jkh" id="RTx-6P-98p"/>
                         <outlet property="aboutDisplay" destination="Iac-7I-TVS" id="gMy-I0-PNn"/>
                         <outlet property="bestImageDisplay" destination="c7t-c5-IPb" id="eNj-1m-WgI"/>
+                        <outlet property="bestImageQualitySwitch" destination="cfF-Oy-0vV" id="UHe-sN-GFZ"/>
                         <outlet property="dragTheSliderLabel" destination="X6G-3b-Mah" id="Mmb-ac-BX8"/>
                         <outlet property="feedBackDisplay" destination="2p7-6z-xB4" id="s9a-P6-1uc"/>
                         <outlet property="numberLabel" destination="nxd-AQ-X2M" id="PmW-Sq-4vN"/>
                         <outlet property="securityDisplay" destination="dSM-fZ-Pha" id="Vxm-br-Xmt"/>
+                        <outlet property="securityNotAvailableLabel" destination="3df-Dz-oLu" id="sCH-gQ-dLy"/>
                         <outlet property="sliderCnt" destination="nmS-gV-Qeb" id="DwR-gP-Lhf"/>
                         <outlet property="touchID" destination="7u3-aD-K8Q" id="4DD-e8-5kD"/>
                     </connections>

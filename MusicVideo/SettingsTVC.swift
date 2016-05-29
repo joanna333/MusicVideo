@@ -8,6 +8,7 @@
 
 import UIKit
 import MessageUI
+import LocalAuthentication
 
 class SettingsTVC: UITableViewController, MFMailComposeViewControllerDelegate {
 
@@ -27,8 +28,12 @@ class SettingsTVC: UITableViewController, MFMailComposeViewControllerDelegate {
     
     @IBOutlet weak var numberLabel: UILabel!
     
+    @IBOutlet weak var securityNotAvailableLabel: UILabel!
     
     @IBOutlet weak var dragTheSliderLabel: UILabel!
+    
+    @IBOutlet weak var bestImageQualitySwitch: UISwitch!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +43,17 @@ class SettingsTVC: UITableViewController, MFMailComposeViewControllerDelegate {
         
         title = "Settings"
         
+        let context = LAContext()
+        var touchIDError: NSError? = nil
+        if !context.canEvaluatePolicy(LAPolicy.DeviceOwnerAuthenticationWithBiometrics, error:&touchIDError) {
+            touchID.on = false
+            NSUserDefaults.standardUserDefaults().setBool(touchID.on, forKey: "SecSetting")
+            touchID.enabled = false
+            securityNotAvailableLabel.hidden = false
+        }
+        
         touchID.on = NSUserDefaults.standardUserDefaults().boolForKey("SecSetting")
+        bestImageQualitySwitch.on = NSUserDefaults.standardUserDefaults().boolForKey("BestImageQuality")
         if (NSUserDefaults.standardUserDefaults().objectForKey("APICNT")) != nil {
             let theValue = NSUserDefaults.standardUserDefaults().objectForKey("APICNT") as! Int
         APICnt.text = "\(theValue)"
@@ -59,6 +74,16 @@ class SettingsTVC: UITableViewController, MFMailComposeViewControllerDelegate {
         }
     }
     
+    @IBAction func bestImageQualityOn(sender: UISwitch) {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        if bestImageQualitySwitch.on {
+            defaults.setBool(bestImageQualitySwitch.on, forKey: "BestImageQuality")
+        } else {
+            defaults.setBool(false, forKey: "BestImageQuality")
+        }
+    }
+    
+    
     @IBAction func valueChanged(sender: UISlider) {
         let defaults = NSUserDefaults.standardUserDefaults()
         defaults.setObject(Int(sliderCnt.value), forKey: "APICNT")
@@ -73,6 +98,7 @@ class SettingsTVC: UITableViewController, MFMailComposeViewControllerDelegate {
         APICnt.font = UIFont.preferredFontForTextStyle(UIFontTextStyleSubheadline)
         numberLabel.font = UIFont.preferredFontForTextStyle(UIFontTextStyleSubheadline)
         dragTheSliderLabel.font = UIFont.preferredFontForTextStyle(UIFontTextStyleFootnote)
+        securityNotAvailableLabel.font = UIFont.preferredFontForTextStyle(UIFontTextStyleFootnote)
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -123,6 +149,8 @@ class SettingsTVC: UITableViewController, MFMailComposeViewControllerDelegate {
         }
         self.dismissViewControllerAnimated(true, completion: nil)
     }
+    
+    
     
     deinit {
         NSNotificationCenter.defaultCenter().removeObserver(self, name: UIContentSizeCategoryDidChangeNotification, object: nil)

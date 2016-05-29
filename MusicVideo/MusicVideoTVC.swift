@@ -8,6 +8,8 @@
 
 import UIKit
 
+var resolution = "300x300"
+
 class MusicVideoTVC: UITableViewController {
     var videos = [Videos]()
     
@@ -56,7 +58,20 @@ class MusicVideoTVC: UITableViewController {
         tableView.reloadData()
     }
     
-    
+    func setImageQuality() {
+        if NSUserDefaults.standardUserDefaults().boolForKey("BestImageQuality") {
+        switch reachabilityStatus {
+        case WIFI:
+            resolution = "600x600"
+            print("high resolution")
+        default:
+            resolution = "300x300"
+        }
+        } else {
+            resolution = "300x300"
+            print("low resolution")
+        }
+    }
     
     func reachabilityStatusChanged() {
         
@@ -91,6 +106,7 @@ class MusicVideoTVC: UITableViewController {
             }
             
         }
+        setImageQuality()
         
     }
     
