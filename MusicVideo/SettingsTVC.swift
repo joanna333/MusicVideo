@@ -118,7 +118,7 @@ class SettingsTVC: UITableViewController, MFMailComposeViewControllerDelegate {
         
         let mailComposeVC = MFMailComposeViewController()
         mailComposeVC.mailComposeDelegate = self
-        mailComposeVC.setToRecipients(["joanna@kolny.de"])
+        mailComposeVC.setToRecipients([""])
         mailComposeVC.setSubject("Music Video App Feedback")
         mailComposeVC.setMessageBody("Hi Joanna, \n\nI would like to share the following feedback...\n", isHTML: false)
         return mailComposeVC
