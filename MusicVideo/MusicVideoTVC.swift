@@ -17,15 +17,14 @@ class MusicVideoTVC: UITableViewController {
     
     let resultSearchController = UISearchController(searchResultsController: nil)
     var limit = 10
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MusicVideoTVC.reachabilityStatusChanged), name: "ReachStatusChanged", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MusicVideoTVC.prefferredFontChange), name: UIContentSizeCategoryDidChangeNotification, object: nil)
         
-        reachabilityStatusChanged()
-        
+        reachabilityStatusChanged()        
         
     }
     
@@ -37,18 +36,25 @@ class MusicVideoTVC: UITableViewController {
         
         print(reachabilityStatus)
         self.videos = videos
-        for item in videos {
-            print("name = \(item.vName)")
+        if videos.count == 0 {
+            let alert = UIAlertController(title: "No Vidoes found", message: "Choose another genre in the Settings", preferredStyle: .Alert)
+            
+            let okAction = UIAlertAction(title: "OK", style: .Default) { action -> () in
+            }
+            alert.addAction(okAction)
+            self.presentViewController(alert, animated: true, completion: nil)
         }
-        
         for (index, item) in videos.enumerate() {
             print("\(index) name = \(item.vName)")
             print("\(index) name = \(item.vPrice)")
         }
         
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.redColor()]
-        title = "The iTunes Top \(limit) Music Videos"
-        
+        if (NSUserDefaults.standardUserDefaults().objectForKey("GENRE") as! String) == "All" {
+            title = "The iTunes Top \(limit) Music Videos"
+        } else {
+            title = "\(NSUserDefaults.standardUserDefaults().objectForKey("GENRE") as! String): Top \(limit)"
+        }
         resultSearchController.searchResultsUpdater = self
         definesPresentationContext = true
         resultSearchController.dimsBackgroundDuringPresentation = false
@@ -63,23 +69,20 @@ class MusicVideoTVC: UITableViewController {
         switch reachabilityStatus {
         case WIFI:
             resolution = "600x600"
-            print("high resolution")
         default:
             resolution = "300x300"
         }
         } else {
             resolution = "300x300"
-            print("low resolution")
         }
     }
+    
     
     func reachabilityStatusChanged() {
         
         switch reachabilityStatus {
         case NOACCESS:
-            // view.backgroundColor = UIColor.redColor()
             dispatch_async(dispatch_get_main_queue()) {
-                
                 
                 let alert = UIAlertController(title: "No Internet Access", message: "Please make sure you are connected to the Internet", preferredStyle: .Alert)
                 let cancelAction = UIAlertAction(title: "Cancel", style: .Default) { action -> () in
@@ -98,7 +101,6 @@ class MusicVideoTVC: UITableViewController {
                 self.presentViewController(alert, animated: true, completion: nil)
             }
         default:
-            //view.backgroundColor = UIColor.greenColor()
             if videos.count > 0 {
                 print("do not refresh API")
             } else {
@@ -134,12 +136,19 @@ class MusicVideoTVC: UITableViewController {
         
         refreshControl?.attributedTitle = NSAttributedString(string: "\(refreshDte)")
     }
+    
+    
     func runAPI() {
         
         getAPICount()
+        if NSUserDefaults.standardUserDefaults().objectForKey("GENRESTRING") == nil {
+            NSUserDefaults.standardUserDefaults().setObject("", forKey: "GENRESTRING")
+        }
+        let chosenGenre = NSUserDefaults.standardUserDefaults().objectForKey("GENRESTRING") as! String
         //Call API
         let api = APIManager()
-        api.loadData("https://itunes.apple.com/us/rss/topmusicvideos/limit=\(limit)/json", completion: didLoadData)
+        api.loadData("https://itunes.apple.com/us/rss/topmusicvideos/limit=\(limit)\(chosenGenre)/json", completion: didLoadData)
+        print("https://itunes.apple.com/us/rss/topmusicvideos/limit=\(limit)\(chosenGenre)/json")
     }
     
     deinit {
@@ -180,45 +189,8 @@ class MusicVideoTVC: UITableViewController {
     }
     
     
-    /*
-     // Override to support conditional editing of the table view.
-     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-     // Return false if you do not want the specified item to be editable.
-     return true
-     }
-     */
-    
-    /*
-     // Override to support editing the table view.
-     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-     if editingStyle == .Delete {
-     // Delete the row from the data source
-     tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-     } else if editingStyle == .Insert {
-     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-     }
-     }
-     */
-    
-    /*
-     // Override to support rearranging the table view.
-     override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-     
-     }
-     */
-    
-    /*
-     // Override to support conditional rearranging of the table view.
-     override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-     // Return false if you do not want the item to be re-orderable.
-     return true
-     }
-     */
-    
-    
     // MARK: - Navigation
     
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == storyboard.segueIdentifier {
             if let indexpath = tableView.indexPathForSelectedRow {
@@ -233,12 +205,6 @@ class MusicVideoTVC: UITableViewController {
             }
         }
     }
-    
-//    func updateSearchResultsForSearchController(searchController: UISearchController) {
-//        searchController.searchBar.text?.lowercaseString
-//        filterSearch(searchController.searchBar.text!)
-//    }
-//    
     func filterSearch(searchText: String) {
         filterSearch = videos.filter { videos in
         return videos.vArtist.lowercaseString.containsString(searchText.lowercaseString) || videos.vName.lowercaseString.containsString(searchText.lowercaseString) || "\(videos.vRank)".lowercaseString.containsString(searchText.lowercaseString)
@@ -247,12 +213,3 @@ class MusicVideoTVC: UITableViewController {
     }
     
 }
-
-//extension MusicVideoTVC: UISearchResultsUpdating {
-//    func updateSearchResultsForSearchController(searchController: UISearchController) {
-//        searchController.searchBar.text?.lowercaseString
-//        filterSearch(searchController.searchBar.text!)
-//    }
-//
-//}
-

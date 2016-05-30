@@ -34,6 +34,9 @@ class SettingsTVC: UITableViewController, MFMailComposeViewControllerDelegate {
     
     @IBOutlet weak var bestImageQualitySwitch: UISwitch!
     
+    @IBOutlet weak var genreLabel: UILabel!
+    
+    @IBOutlet weak var chosenGenreLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,7 +65,16 @@ class SettingsTVC: UITableViewController, MFMailComposeViewControllerDelegate {
             sliderCnt.value = 10.0
             APICnt.text = "\(Int(sliderCnt.value))"
         }
+        
+        if NSUserDefaults.standardUserDefaults().objectForKey("GENRE") == nil {
+            NSUserDefaults.standardUserDefaults().setObject("All", forKey: "GENRE")
+        }
+        chosenGenreLabel.text = NSUserDefaults.standardUserDefaults().objectForKey("GENRE") as? String
 
+    }
+    
+    @IBAction func save(segue: UIStoryboardSegue) {
+        chosenGenreLabel.text = NSUserDefaults.standardUserDefaults().objectForKey("GENRE") as? String
     }
     
     @IBAction func touchIdSecurity(sender: UISwitch) {
@@ -99,6 +111,8 @@ class SettingsTVC: UITableViewController, MFMailComposeViewControllerDelegate {
         numberLabel.font = UIFont.preferredFontForTextStyle(UIFontTextStyleSubheadline)
         dragTheSliderLabel.font = UIFont.preferredFontForTextStyle(UIFontTextStyleFootnote)
         securityNotAvailableLabel.font = UIFont.preferredFontForTextStyle(UIFontTextStyleFootnote)
+        genreLabel.font = UIFont.preferredFontForTextStyle(UIFontTextStyleSubheadline)
+        chosenGenreLabel.font = UIFont.preferredFontForTextStyle(UIFontTextStyleSubheadline)
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -118,7 +132,7 @@ class SettingsTVC: UITableViewController, MFMailComposeViewControllerDelegate {
         
         let mailComposeVC = MFMailComposeViewController()
         mailComposeVC.mailComposeDelegate = self
-        mailComposeVC.setToRecipients(["joanna@kolny.de"])
+        mailComposeVC.setToRecipients([""])
         mailComposeVC.setSubject("Music Video App Feedback")
         mailComposeVC.setMessageBody("Hi Joanna, \n\nI would like to share the following feedback...\n", isHTML: false)
         return mailComposeVC
@@ -149,8 +163,6 @@ class SettingsTVC: UITableViewController, MFMailComposeViewControllerDelegate {
         }
         self.dismissViewControllerAnimated(true, completion: nil)
     }
-    
-    
     
     deinit {
         NSNotificationCenter.defaultCenter().removeObserver(self, name: UIContentSizeCategoryDidChangeNotification, object: nil)
