@@ -50,12 +50,17 @@ class MusicVideoTVC: UITableViewController {
         }
         
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.redColor()]
-        if (NSUserDefaults.standardUserDefaults().objectForKey("GENRE") as! String) == "All" {
-            title = "The iTunes Top \(limit) Music Videos"
+        if (NSUserDefaults.standardUserDefaults().objectForKey("GENRE")) != nil {
+            if (NSUserDefaults.standardUserDefaults().objectForKey("GENRE") as! String) == "All" {
+                title = "The iTunes Top \(limit) Music Videos"
+            } else {
+                title = "\(NSUserDefaults.standardUserDefaults().objectForKey("GENRE") as! String): Top \(limit)"
+            }
+
         } else {
-            title = "\(NSUserDefaults.standardUserDefaults().objectForKey("GENRE") as! String): Top \(limit)"
+           title = "The iTunes Top \(limit) Music Videos" 
         }
-        resultSearchController.searchResultsUpdater = self
+                resultSearchController.searchResultsUpdater = self
         definesPresentationContext = true
         resultSearchController.dimsBackgroundDuringPresentation = false
         resultSearchController.searchBar.placeholder = "Search for Artist, Name, Rank"
